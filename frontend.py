@@ -10,7 +10,7 @@ from keras.applications.mobilenet import MobileNet
 from keras.layers.merge import concatenate
 from keras.optimizers import SGD, Adam, RMSprop
 from preprocessing import BatchGenerator
-from keras.callbacks import EarlyStopping, ModelCheckpoint, TensorBoard
+from keras.callbacks import EarlyStopping, ModelCheckpoint, TensorBoard, CSVLogger, Callback
 from backend import TinyYoloFeature, FullYoloFeature, MobileNetFeature, SqueezeNetFeature, Inception3Feature, VGG16Feature, ResNet50Feature
 
 class YOLO(object):
@@ -254,8 +254,9 @@ class YOLO(object):
                     no_object_scale,
                     coord_scale,
                     class_scale,
+                    csvLogFilePath,
                     saved_weights_name='best_weights.h5',
-                    debug=False):     
+                    debug=False):
 
         self.batch_size = batch_size
 
@@ -321,6 +322,12 @@ class YOLO(object):
                                   write_graph=True, 
                                   write_images=False)
 
+        csvLogger = CSVLogger(csvLogFilePath)
+
+        #class PredictCallback(Callback):
+
+
+
         ############################################
         # Start the training process
         ############################################        
@@ -331,7 +338,7 @@ class YOLO(object):
                                  verbose          = 2 if debug else 1,
                                  validation_data  = valid_generator,
                                  validation_steps = len(valid_generator) * valid_times,
-                                 callbacks        = [early_stop, checkpoint, tensorboard], 
+                                 callbacks        = [csvLogger,checkpoint, tensorboard],
                                  workers          = 3,
                                  max_queue_size   = 8)      
 
