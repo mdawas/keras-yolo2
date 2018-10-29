@@ -1,6 +1,6 @@
 {
     "model" : {
-        "backend":              "Full Yolo",
+        "backend":              "VGG16",
         "input_size":           416,
         "anchors":              [3.94,5.57, 5.88,9.85, 7.96,12.00, 9.95,8.76, 11.27,12.17],
         "max_box_per_image":    10,        
@@ -12,7 +12,7 @@
         "train_annot_folder":   "/geo/home/i501245/projects/keras-yolo/raccoon_dataset/trainData/annot/",
           
         "train_times":          1,
-        "pretrained_weights":   "pretrained_yolo_raccoon.h5",
+        "pretrained_weights":   "",
         "batch_size":           16,
         "learning_rate":        1e-4,
         "nb_epochs":            10,
@@ -20,10 +20,10 @@
 
         "object_scale":         5.0,
         "no_object_scale":      1.0,
-        "coord_scale":          3.0,
+        "coord_scale":          1.0,
         "class_scale":          1.0,
 
-        "saved_weights_name":   "full_yolo_raccoon.h5",
+        "saved_weights_name":   "pretrained_vgg_raccoon.h5",
         "debug":                true,
 
         "csvLogFile":           "lossAfterEpochs.csv",

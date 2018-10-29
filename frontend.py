@@ -247,7 +247,7 @@ class YOLO(object):
     def load_weights(self, weight_path):
         self.model.load_weights(weight_path)
 
-    def train(self, train_imgs,     # the list of images to train the model
+    def train(self, train_imgs,     # the list of images to trainImages the model
                     valid_imgs,     # the list of images used to validate the model
                     train_times,    # the number of time to repeat the training set, often used for small datasets
                     valid_times,    # the number of times to repeat the validation set, often used for small datasets
@@ -273,7 +273,7 @@ class YOLO(object):
         self.debug = debug
 
         ############################################
-        # Make train and validation generators
+        # Make trainImages and validation generators
         ############################################
 
         generator_config = {

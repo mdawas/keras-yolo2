@@ -29,8 +29,8 @@ def _main_(args):
     ###############################
 
     # parse annotations of the training set
-    train_imgs, train_labels = parse_annotation(config['train']['train_annot_folder'], 
-                                                config['train']['train_image_folder'], 
+    train_imgs, train_labels = parse_annotation(config['train']['train_annot_folder'],
+                                                config['train']['train_image_folder'],
                                                 config['model']['labels'])
 
     # parse annotations of the validation set, if any, otherwise split the training set
@@ -85,8 +85,8 @@ def _main_(args):
                valid_imgs         = valid_imgs,
                train_times        = config['train']['train_times'],
                valid_times        = config['valid']['valid_times'],
-               nb_epochs          = config['train']['nb_epochs'], 
-               learning_rate      = config['train']['learning_rate'], 
+               nb_epochs          = config['train']['nb_epochs'],
+               learning_rate      = config['train']['learning_rate'],
                batch_size         = config['train']['batch_size'],
                warmup_epochs      = config['train']['warmup_epochs'],
                object_scale       = config['train']['object_scale'],
