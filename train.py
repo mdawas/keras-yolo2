@@ -93,6 +93,7 @@ def _main_(args):
                no_object_scale    = config['train']['no_object_scale'],
                coord_scale        = config['train']['coord_scale'],
                class_scale        = config['train']['class_scale'],
+               csvLogFilePath=config['train']['csvLogFile'],
                saved_weights_name = config['train']['saved_weights_name'],
                debug              = config['train']['debug'])
 
