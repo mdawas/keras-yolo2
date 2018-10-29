@@ -20,13 +20,13 @@
 
         "object_scale":         5.0,
         "no_object_scale":      1.0,
-        "coord_scale":          1.0,
+        "coord_scale":          3.0,
         "class_scale":          1.0,
 
         "saved_weights_name":   "full_yolo_raccoon.h5",
         "debug":                true,
 
-        "csvLogFile":           "1e-4_5.0_1.0_1.0_1.0_10Epochs.csv",
+        "csvLogFile":           "lossAfterEpochs.csv",
 
         "predictionImagePath":  "/geo/home/i501245/projects/keras-yolo/raccoon_dataset/testData/raccoon-110.jpg"
     },

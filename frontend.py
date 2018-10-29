@@ -18,7 +18,7 @@ class YOLO(object):
                        input_size, 
                        labels, 
                        max_box_per_image,
-                       anchors):
+                       anchors,prediction = False):
 
         self.input_size = input_size
         
@@ -70,6 +70,11 @@ class YOLO(object):
 
         self.model = Model([input_image, self.true_boxes], output)
 
+        print('Trainable flag before change: ', self.model.trainable)
+        if prediction:
+            self.model.trainable = False
+
+        print('Trainable flag: ',self.model.trainable)
         
         # initialize the weights of the detection layer
         layer = self.model.layers[-4]
